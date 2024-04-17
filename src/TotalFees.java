@@ -10,7 +10,7 @@ public class TotalFees {
         this.competition = competition;
     }
 
-    public double calculateTotalFees(int selectedTrainingPlan) {
+    public double calculateTotalFees(int selectedTrainingPlan, boolean hasPrivateCoaching, boolean hasCompetition) {
 
         System.out.println(privateCoaching.getFees());
         System.out.println(competition.getFees());
@@ -20,31 +20,23 @@ public class TotalFees {
 
         switch (selectedTrainingPlan) {
             case 1:
-                totalFees = trainingPlan.getBeginnerFees() + privateCoaching.getFees() + competition.getFees();
+                totalFees += trainingPlan.getBeginnerFees();
                 break;
             case 2:
-                totalFees = trainingPlan.getIntermediateFees() + privateCoaching.getFees() + competition.getFees();
+                totalFees += trainingPlan.getIntermediateFees();
                 break;
             case 3:
-                totalFees = trainingPlan.getEliteFees() + privateCoaching.getFees() + competition.getFees();
+                totalFees += trainingPlan.getEliteFees();
                 break;
         }
 
-        // if (trainingPlan.getIntermediateFees() == 0 || trainingPlan.getEliteFees() ==
-        // 0) {
-        // double totalFees = trainingPlan.getBeginnerFees() + privateCoaching.getFees()
-        // + competition.getFees();
-        // return totalFees;
-        // } else if (trainingPlan.getBeginnerFees() == 0 || trainingPlan.getEliteFees()
-        // == 0) {
-        // double totalFees = trainingPlan.getIntermediateFees() +
-        // privateCoaching.getFees() + competition.getFees();
-        // return totalFees;
-        // } else {
-        // double totalFees = trainingPlan.getEliteFees() + privateCoaching.getFees() +
-        // competition.getFees();
-        // return totalFees;
-        // }
+        if (hasPrivateCoaching) {
+            totalFees += privateCoaching.getFees();
+        }
+
+        if (hasCompetition) {
+            totalFees += competition.getFees();
+        }
 
         return totalFees;
     }
