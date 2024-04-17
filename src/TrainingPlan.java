@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TrainingPlan {
@@ -48,10 +49,23 @@ public class TrainingPlan {
 
     public double selectedTrainingPlan() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Choose your training plan (1 or 2 or 3) : ");
-        int selectedTrainingPlan = scanner.nextInt();
-        System.out.println();
         
+        int selectedTrainingPlan = 0;
+
+        do {
+            try {
+                System.out.print("Choose your training plan (1 or 2 or 3) : ");
+                selectedTrainingPlan = scanner.nextInt();
+                System.out.println();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid Input. Please enter number only.");
+                System.out.println();
+                scanner.next();
+                continue;
+            }
+            break;
+        } while (true);
+
         return handleTrainingPlanSelection(selectedTrainingPlan);
     }
 
@@ -72,21 +86,4 @@ public class TrainingPlan {
                 return selectedTrainingPlan();
         }
     }
-
-    // public double selectedTrainingPlan(int trainingPlan) {
-    //     switch (trainingPlan) {
-    //         case 1:
-    //             System.out.println("Athlete choose the beginner plan.");
-    //             return beginnerFees;
-    //         case 2:
-    //             System.out.println("Athlete choose the intermediate plan.");
-    //             return intermediateFees;
-    //         case 3:
-    //             System.out.println("Athlete choose the elite plan.");
-    //             return eliteFees;
-    //         default:
-    //             System.out.println("There has only 3 plans. Choose only between 1 to 3.");
-    //             return 0;
-    //     }
-    // }
 }
