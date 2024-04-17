@@ -1,11 +1,9 @@
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 public class Test {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         DecimalFormat currencyFormat = new DecimalFormat("#0.00");
 
         // TrainingPlan
@@ -27,6 +25,8 @@ public class Test {
 
         double privateFees = privateCoaching.selectedPrivateCoaching();
         
+        privateCoaching.setFees(privateFees);
+        
         String formatePrivateFees = currencyFormat.format(privateFees) + " $";
 
         System.out.printf("%nYour Private Coaching Fees : %s%n" , formatePrivateFees);
@@ -39,11 +39,18 @@ public class Test {
 
         double competitionFees = competition.selectedCompetitionFees();
         
+        competition.setFees(competitionFees);
+        
         String formatCompetitionFees = currencyFormat.format(competitionFees) + " $";
 
         System.out.printf("%nYour Competition Fees : %s%n", formatCompetitionFees);
 
 
-        scanner.close();
+        // Total Fees
+        TotalFees totalFees = new TotalFees(trainingPlan, privateCoaching, competition);
+
+        int selectedTrainingPlan = trainingPlan.getSelectedPlan();
+
+        System.out.println("Your Total Cost : " + totalFees.calculateTotalFees(selectedTrainingPlan));
     }
 }

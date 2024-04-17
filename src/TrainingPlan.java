@@ -6,6 +6,9 @@ public class TrainingPlan {
     private double beginnerFees;
     private double intermediateFees;
     private double eliteFees;
+    private int selectedPlan;
+
+    Scanner scanner = new Scanner(System.in);
 
     public TrainingPlan(double beginnerFees, double intermediateFees, double eliteFees) {
         this.beginnerFees = beginnerFees;
@@ -37,6 +40,11 @@ public class TrainingPlan {
         this.eliteFees = eliteFees;
     }
 
+    // getter method for selected plan
+    public int getSelectedPlan() {
+        return selectedPlan;
+    }
+
     public void showTrainingPlan() {
         System.out.println("""
                                     ~~ Training Plan ~~
@@ -48,7 +56,6 @@ public class TrainingPlan {
     }
 
     public double selectedTrainingPlan() {
-        Scanner scanner = new Scanner(System.in);
         
         int selectedTrainingPlan = 0;
 
@@ -65,6 +72,9 @@ public class TrainingPlan {
             }
             break;
         } while (true);
+
+        // Stored the selected plan
+        this.selectedPlan = selectedTrainingPlan;
 
         return handleTrainingPlanSelection(selectedTrainingPlan);
     }
