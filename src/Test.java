@@ -29,7 +29,7 @@ public class Test {
 
         privateCoaching.showPrivateFees();
 
-        if (privateCoachingChoice.equals("yes")) {
+        if (privateCoachingChoice.equals("yes") || privateCoachingChoice.equals("y")) {
 
             double privateFees = privateCoaching.selectedPrivateCoaching();
             
@@ -48,29 +48,34 @@ public class Test {
         System.out.println("Do you want to enter competition? (yes/no)");
         String competitionChoice = scanner.nextLine().trim().toLowerCase();
 
-        Competition competition = new Competition(22);
-
-        competition.showCompetitionInfo();
-
-        if (competitionChoice.equals("yes")) {
-            double competitionFees = competition.selectedCompetitionFees();
+        Competition competition = new Competition();
         
-            competition.setFees(competitionFees);
-            
-            String formatCompetitionFees = currencyFormat.format(competitionFees) + " $";
-
-            System.out.printf("%nYour Competition Fees : %s%n", formatCompetitionFees);
+        if (trainingPlan.getSelectedPlan() == 1 && (competitionChoice.equals("yes") || competitionChoice.equals("y"))) {
+            System.out.println("Beginner Athlete can't enter the competition.");
         } else {
-            System.out.println("Athlete didn't want to participate competition.");
+            competition = new Competition(22);
+
+            competition.showCompetitionInfo();
+
+            if (competitionChoice.equals("yes") || competitionChoice.equals("y")) {
+                double competitionFees = competition.selectedCompetitionFees();
+            
+                competition.setFees(competitionFees);
+                
+                String formatCompetitionFees = currencyFormat.format(competitionFees) + " $";
+    
+                System.out.printf("%nYour Competition Fees : %s%n", formatCompetitionFees);
+            } else {
+                System.out.println("Athlete didn't want to participate competition.");
+            }
         }
-        
 
         // Total Fees
         TotalFees totalFees = new TotalFees(trainingPlan, privateCoaching, competition);
 
         int selectedTrainingPlan = trainingPlan.getSelectedPlan();
-        boolean hasPrivateCoaching = privateCoachingChoice.equals("yes");
-        boolean hasCompetition = competitionChoice.equals("yes");
+        boolean hasPrivateCoaching = privateCoachingChoice.equals("yes") || privateCoachingChoice.equals("y");
+        boolean hasCompetition = competitionChoice.equals("yes")|| competitionChoice.equals("y");
 
         String formatTotalFees = currencyFormat.format(totalFees.calculateTotalFees(selectedTrainingPlan, hasPrivateCoaching, hasCompetition)) + " $";
 

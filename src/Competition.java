@@ -7,6 +7,10 @@ public class Competition {
 
     Scanner scanner = new Scanner(System.in);
 
+    public Competition() {
+        
+    }
+
     public Competition(double fees) {
         this.fees = fees;
     }
