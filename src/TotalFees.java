@@ -12,10 +12,6 @@ public class TotalFees {
 
     public double calculateTotalFees(int selectedTrainingPlan, boolean hasPrivateCoaching, boolean hasCompetition) {
 
-        System.out.println(privateCoaching.getFees());
-        System.out.println(competition.getFees());
-        System.out.println();
-
         double totalFees = 0;
 
         switch (selectedTrainingPlan) {

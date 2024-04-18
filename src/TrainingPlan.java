@@ -65,7 +65,8 @@ public class TrainingPlan {
                 selectedTrainingPlan = scanner.nextInt();
                 System.out.println();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid Input. Please enter number only.");
+                System.out.println();
+                System.out.println(Color.ANSI_RED + "Invalid Input. Please enter number only." + Color.ANSI_RESET);
                 System.out.println();
                 scanner.next();
                 continue;
@@ -82,16 +83,16 @@ public class TrainingPlan {
     private double handleTrainingPlanSelection(int trainingPlan) {
         switch (trainingPlan) {
             case 1:
-                System.out.println("Athlete choose the beginner plan.");
+                System.out.println(Color.ANSI_YELLOW + "Athlete choose the beginner plan." + Color.ANSI_RESET);
                 return beginnerFees;
             case 2:
-                System.out.println("Athlete choose the intermediate plan.");
+                System.out.println(Color.ANSI_YELLOW + "Athlete choose the intermediate plan." + Color.ANSI_RESET);
                 return intermediateFees;
             case 3:
-                System.out.println("Athlete choose the elite plan.");
+                System.out.println(Color.ANSI_YELLOW + "Athlete choose the elite plan." + Color.ANSI_RESET);
                 return eliteFees;
             default:
-                System.out.println("There has only 3 plans. Choose only between 1 to 3.");
+                System.out.println(Color.ANSI_RED + "There has only 3 plans. Choose only between 1 to 3." + Color.ANSI_RESET);
                 System.out.println();
                 return selectedTrainingPlan();
         }

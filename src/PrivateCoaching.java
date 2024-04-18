@@ -30,7 +30,7 @@ public class PrivateCoaching {
 
     public void showPrivateFees() {
         System.out.println("""
-                        ~~ Private Coaching Information ~~
+                            ~~ Private Coaching Information ~~
 
                     Private Coaching Fees : $9.00 per hour
                     Note - Each athlete can get only 5 hours maximum per week of private coaching.
@@ -46,7 +46,8 @@ public class PrivateCoaching {
                 System.out.print("How much hours do you want for private coaching in a week : ");
                 selectedHours = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+                System.out.println();
+                System.out.println(Color.ANSI_RED + "Invalid input. Please enter a valid number." + Color.ANSI_RESET);
                 System.out.println();
                 scanner.next();
                 continue; // Skip the rest of the loop and start again.
@@ -61,7 +62,7 @@ public class PrivateCoaching {
 
         while (selectedHours > 5) {
             System.out.println();
-            System.out.println("Private hours can't be more than 5 hours.");
+            System.out.println(Color.ANSI_RED + "Private Coaching hours can't be more than 5 hours." + Color.ANSI_RESET);
             System.out.println();
             // For Invalid Input
             do {
@@ -69,7 +70,8 @@ public class PrivateCoaching {
                     System.out.print("Enter the hours that you want again (maximum 5 hours/week) : ");
                     selectedHours = scanner.nextInt();
                 } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a valid number.");
+                    System.out.println();
+                    System.out.println(Color.ANSI_RED + "Invalid input. Please enter a valid number." + Color.ANSI_RESET);            
                     System.out.println();
                     scanner.next();
                     continue; // Skip the rest of the loop and start again.

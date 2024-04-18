@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class Competition {
 
     private double fees;
-    private int numberOfCompetition;
+    private int competitionCount;
 
     Scanner scanner = new Scanner(System.in);
 
     public Competition() {
-        
+
     }
 
     public Competition(double fees) {
@@ -23,12 +23,12 @@ public class Competition {
         this.fees = fees;
     }
 
-    public int getNumberOfCompetition() {
-        return numberOfCompetition;
+    public int getCompetitionCount() {
+        return competitionCount;
     }
 
-    public void setNumberOfCompetition(int numberOfCompetition) {
-        this.numberOfCompetition = numberOfCompetition;
+    public void setCompetitionCount(int competitionCount) {
+        this.competitionCount = competitionCount;
     }
 
     public void showCompetitionInfo() {
@@ -50,8 +50,12 @@ public class Competition {
             try {
                 System.out.print("How many competition do you want to enter in a month : ");
                 numberOfCompetition = scanner.nextInt();
+                
+                setCompetitionCount(numberOfCompetition);
+                
             } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+                System.out.println();
+                System.out.println(Color.ANSI_RED + "Invalid input. Please enter a valid number." + Color.ANSI_RESET);
                 System.out.println();
                 scanner.next();
                 continue; // Skip the rest of the loop and start again.
