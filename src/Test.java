@@ -128,9 +128,13 @@ public class Test {
 
                 %s
                 
-                Training Plan Cost      :   %s
+                %s
                 
+                Private Coaching Hour   :   %d hr/week
+
                 Number of Competition   :   %d
+
+                Training Plan Cost      :   %s
 
                 Competition Cost        :   %s
                 
@@ -138,7 +142,9 @@ public class Test {
                 
                 Total Fees              :   %s            
                 """.formatted(athlete.getName(), athlete.getCurrentWeight(), weightCategory.compareToCompetitionWeight(),
-                formatTrainingFees, competition.getCompetitionCount(), competitionFees, privateFees, formatTotalFees) + Color.ANSI_RESET);
+                trainingPlan.trainingPlanName(selectedTrainingPlan), privateCoaching.getHours(), competition.getCompetitionCount(),
+                formatTrainingFees, competitionFees, privateFees,
+                formatTotalFees) + Color.ANSI_RESET);
 
         scanner.close();
     }

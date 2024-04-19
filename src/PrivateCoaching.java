@@ -45,6 +45,7 @@ public class PrivateCoaching {
             try {
                 System.out.print("How much hours do you want for private coaching in a week : ");
                 selectedHours = scanner.nextInt();
+                setHours(selectedHours);
             } catch (InputMismatchException e) {
                 System.out.println();
                 System.out.println(Color.ANSI_RED + "Invalid input. Please enter a valid number." + Color.ANSI_RESET);
