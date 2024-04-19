@@ -83,11 +83,11 @@ public class TrainingPlan {
     public String trainingPlanName(int trainingPlan) {
         switch (trainingPlan) {
             case 1:
-                return "Athlete choose the beginner plan.";
+                return "Athlete choose the beginner plan. (2 sessions per week)";
             case 2:
-                return "Athlete choose the intermediate plan.";
+                return "Athlete choose the intermediate plan. (3 sessions per week)";
             case 3:
-                return "Athlete choose the elite plan.";
+                return "Athlete choose the elite plan. (5 sessions per week)";
             default:
                 return "Athlete didn't choose any plan";
         }
@@ -96,13 +96,13 @@ public class TrainingPlan {
     private double handleTrainingPlanSelection(int trainingPlan) {
         switch (trainingPlan) {
             case 1:
-                System.out.println(Color.ANSI_YELLOW + "Athlete choose the beginner plan." + Color.ANSI_RESET);
+                System.out.println(Color.ANSI_YELLOW + "Athlete choose the beginner plan. (2 sessions per week)" + Color.ANSI_RESET);
                 return beginnerFees;
             case 2:
-                System.out.println(Color.ANSI_YELLOW + "Athlete choose the intermediate plan." + Color.ANSI_RESET);
+                System.out.println(Color.ANSI_YELLOW + "Athlete choose the intermediate plan. (3 sessions per week)" + Color.ANSI_RESET);
                 return intermediateFees;
             case 3:
-                System.out.println(Color.ANSI_YELLOW + "Athlete choose the elite plan." + Color.ANSI_RESET);
+                System.out.println(Color.ANSI_YELLOW + "Athlete choose the elite plan. (5 sessions per week)" + Color.ANSI_RESET);
                 return eliteFees;
             default:
                 System.out.println(

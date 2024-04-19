@@ -70,6 +70,7 @@ public class PrivateCoaching {
                 try {
                     System.out.print("Enter the hours that you want again (maximum 5 hours/week) : ");
                     selectedHours = scanner.nextInt();
+                    setHours(selectedHours);
                 } catch (InputMismatchException e) {
                     System.out.println();
                     System.out.println(Color.ANSI_RED + "Invalid input. Please enter a valid number." + Color.ANSI_RESET);            
