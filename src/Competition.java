@@ -7,6 +7,7 @@ public class Competition {
 
     Scanner scanner = new Scanner(System.in);
 
+    // default constructor
     public Competition() {
 
     }

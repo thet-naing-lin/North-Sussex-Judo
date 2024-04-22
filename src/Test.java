@@ -7,6 +7,10 @@ public class Test {
 
         DecimalFormat currencyFormat = new DecimalFormat("#0.00");
         Scanner scanner = new Scanner(System.in);
+        
+        System.out.println();
+        System.out.println("\t\t~~ Welcome to North-Sussex-Judo ~~");
+        System.out.println();
 
         // Athlete
         Athlete athlete = new Athlete();
@@ -24,7 +28,7 @@ public class Test {
         String formatTrainingFees = currencyFormat.format(trainingFees) + " $";
 
         System.out.println();
-        System.out.println("Your training fees : " + formatTrainingFees);
+        System.out.println("Your training fees for one month : " + formatTrainingFees);
         System.out.println();
 
         // Consume the newline character left in the input buffer
@@ -109,7 +113,7 @@ public class Test {
     
                 formatePrivateFees = currencyFormat.format(privateFees) + " $";
     
-                System.out.printf("%nYour Private Coaching Fees : %s%n" , formatePrivateFees);
+                System.out.printf("%nYour Private Coaching Fees for one month : %s%n" , formatePrivateFees);
                 
                 break;
 
@@ -135,6 +139,7 @@ public class Test {
         boolean hasPrivateCoaching = privateCoachingChoice.equals("yes") || privateCoachingChoice.equals("y");
         boolean hasCompetition = competitionChoice.equals("yes") || competitionChoice.equals("y");
 
+        // To avoid null output by using ternary operator
         String privateFees = formatePrivateFees == null ? "0" : formatePrivateFees;
         String competitionFees = formatCompetitionFees == null ? "0" : formatCompetitionFees;
 
@@ -146,25 +151,25 @@ public class Test {
         System.out.println(Color.ANSI_GREEN + """
                         ~~ Thank You for choosing North Sussex Judo ~~
 
-                    Name                    :   %s
+                    Name                                :   %s
 
-                    Weight                  :   %.2f kg
-
-                    %s
+                    Weight                              :   %.2f kg
 
                     %s
 
-                    Private Coaching Hour   :   %d hr/week
+                    %s
 
-                    Number of Competition   :   %d
+                    Private Coaching Hour               :   %d hr/week
 
-                    Training Plan Cost      :   %s
+                    Number of Competition               :   %d
 
-                    Competition Cost        :   %s
+                    Training Plan Cost for one month    :   %s
 
-                    Private Coaching Cost   :   %s
+                    Competition Cost                    :   %s
 
-                    Total Fees              :   %s
+                    Private Coaching Cost for one month :   %s
+
+                    Total Fees of one month             :   %s
                 """.formatted(athlete.getName(), athlete.getCurrentWeight(),
                 weightCategory.compareToCompetitionWeight(),
                 trainingPlan.trainingPlanName(selectedTrainingPlan), privateCoaching.getHours(),

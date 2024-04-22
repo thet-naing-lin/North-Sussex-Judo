@@ -16,13 +16,13 @@ public class TotalFees {
 
         switch (selectedTrainingPlan) {
             case 1:
-                totalFees += trainingPlan.getBeginnerFees();
+                totalFees += trainingPlan.getBeginnerFees() * trainingPlan.getWeekPerMonth();
                 break;
             case 2:
-                totalFees += trainingPlan.getIntermediateFees();
+                totalFees += trainingPlan.getIntermediateFees() * trainingPlan.getWeekPerMonth();
                 break;
             case 3:
-                totalFees += trainingPlan.getEliteFees();
+                totalFees += trainingPlan.getEliteFees() * trainingPlan.getWeekPerMonth();
                 break;
         }
 

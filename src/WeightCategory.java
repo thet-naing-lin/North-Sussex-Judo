@@ -10,12 +10,12 @@ public class WeightCategory {
         System.out.println("""
                             ~~ Competition Weight Category ~~
 
-                    Flyweight - People who has 66 kg and lower weight
-                    Lightweight - People who has between 67 and 73 kg weight
-                    Light-Middleweight - People who has between 74 and 81 kg weight
-                    Middleweight - People who has between 82 and 90 kg weight
-                    Light-Heavyweight - People who has between 91 and 100 kg weight
-                    Heavyweight - People who has over 100 kg weight
+                    Flyweight           - People who has 66 kg and lower weight
+                    Lightweight         - People who has between 67 and 73 kg weight
+                    Light-Middleweight  - People who has between 74 and 81 kg weight
+                    Middleweight        - People who has between 82 and 90 kg weight
+                    Light-Heavyweight   - People who has between 91 and 100 kg weight
+                    Heavyweight         - People who has over 100 kg weight
                 """);
     }
 

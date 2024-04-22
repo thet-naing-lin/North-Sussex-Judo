@@ -5,6 +5,7 @@ public class PrivateCoaching {
 
     private double fees;
     private int hours;
+    private int weekPerMonth = 4;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -26,6 +27,14 @@ public class PrivateCoaching {
 
     public void setHours(int hours) {
         this.hours = hours;
+    }
+
+    public int getWeekPerMonth() {
+        return weekPerMonth;
+    }
+
+    public void setWeekPerMonth(int weekPerMonth) {
+        this.weekPerMonth = weekPerMonth;
     }
 
     public void showPrivateFees() {
@@ -82,6 +91,6 @@ public class PrivateCoaching {
             } while (true);
         }
 
-        return fees * selectedHours;
+        return fees * selectedHours * getWeekPerMonth();
     }
 }

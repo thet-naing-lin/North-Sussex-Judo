@@ -7,6 +7,7 @@ public class TrainingPlan {
     private double intermediateFees;
     private double eliteFees;
     private int selectedPlan;
+    private int weekPerMonth = 4;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -38,6 +39,14 @@ public class TrainingPlan {
 
     public void setEliteFees(double eliteFees) {
         this.eliteFees = eliteFees;
+    }
+
+    public int getWeekPerMonth() {
+        return weekPerMonth;
+    }
+
+    public void setWeekPerMonth(int weekPerMonth) {
+        this.weekPerMonth = weekPerMonth;
     }
 
     // getter method for selected plan
@@ -77,7 +86,7 @@ public class TrainingPlan {
         // Stored the selected plan
         this.selectedPlan = selectedTrainingPlan;
 
-        return handleTrainingPlanSelection(selectedTrainingPlan);
+        return handleTrainingPlanSelection(selectedTrainingPlan) * getWeekPerMonth();
     }
 
     public String trainingPlanName(int trainingPlan) {
