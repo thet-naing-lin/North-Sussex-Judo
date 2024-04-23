@@ -86,7 +86,7 @@ public class TrainingPlan {
         // Stored the selected plan
         this.selectedPlan = selectedTrainingPlan;
 
-        return handleTrainingPlanSelection(selectedTrainingPlan) * getWeekPerMonth();
+        return calculateFees(selectedTrainingPlan);
     }
 
     public String trainingPlanName(int trainingPlan) {
@@ -102,17 +102,17 @@ public class TrainingPlan {
         }
     }
 
-    private double handleTrainingPlanSelection(int trainingPlan) {
+    private double calculateFees(int trainingPlan) {
         switch (trainingPlan) {
             case 1:
                 System.out.println(Color.ANSI_YELLOW + "Athlete choose the beginner plan. (2 sessions per week)" + Color.ANSI_RESET);
-                return beginnerFees;
+                return beginnerFees * getWeekPerMonth();
             case 2:
                 System.out.println(Color.ANSI_YELLOW + "Athlete choose the intermediate plan. (3 sessions per week)" + Color.ANSI_RESET);
-                return intermediateFees;
+                return intermediateFees * getWeekPerMonth();
             case 3:
                 System.out.println(Color.ANSI_YELLOW + "Athlete choose the elite plan. (5 sessions per week)" + Color.ANSI_RESET);
-                return eliteFees;
+                return eliteFees * getWeekPerMonth();
             default:
                 System.out.println(
                         Color.ANSI_RED + "There has only 3 plans. Choose only between 1 to 3." + Color.ANSI_RESET);
