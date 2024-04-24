@@ -103,6 +103,19 @@ public class TrainingPlan {
         }
     }
 
+    public String trainingPlanNameOnly(int trainingPlan) {
+        switch (trainingPlan) {
+            case 1:
+                return "Beginner Plan";
+            case 2:
+                return "Intermediate Plan";
+            case 3:
+                return "Elite Plan";
+            default:
+                return "Athlete didn't choose any plan";
+        }
+    }
+
     // calculate the weekly training plan fees multiply with 4
     private double calculateFees(int trainingPlan) {
         switch (trainingPlan) {

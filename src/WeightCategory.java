@@ -51,4 +51,35 @@ public class WeightCategory {
         return "Athlete didn't input current weight.";
     }
 
+    public String weightCategoryName() {
+        
+        double athleteWeight = athlete.getCurrentWeight();
+    
+            if (athleteWeight <= 66) {
+                return "Flyweight";
+            }
+    
+            if (athleteWeight > 66 && athleteWeight <= 73) {
+                return "Lightweight";
+            }
+    
+            if (athleteWeight > 74 && athleteWeight <= 81) {
+                return "Light-Middleweight";
+            }
+    
+            if (athleteWeight > 82 && athleteWeight <= 90) {
+                return "Middleweight";
+            }
+    
+            if (athleteWeight > 91 && athleteWeight <= 100) {
+                return "Light-Heavyweight";
+            }
+    
+            if (athleteWeight > 100) {
+                return "Heavyweight";
+            }
+    
+            return "Athlete didn't input current weight.";
+        }
+
 }
