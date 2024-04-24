@@ -19,6 +19,7 @@ public class WeightCategory {
                 """);
     }
 
+    // according to input weight, decide which category of competition that can enter
     public String compareToCompetitionWeight() {
 
         double athleteWeight = athlete.getCurrentWeight();
@@ -29,12 +30,10 @@ public class WeightCategory {
 
         if (athleteWeight > 66 && athleteWeight <= 73) {
             return "You can participate 'Lightweight' category for competition.";
-
         }
 
         if (athleteWeight > 74 && athleteWeight <= 81) {
             return "You can participate 'Light-Middleweight' category for competition.";
-
         }
 
         if (athleteWeight > 82 && athleteWeight <= 90) {

@@ -27,11 +27,11 @@ public class TotalFees {
         }
 
         if (hasPrivateCoaching) {
-            totalFees += privateCoaching.getFees();
+            totalFees += privateCoaching.getTotalFees();
         }
 
         if (hasCompetition) {
-            totalFees += competition.getFees();
+            totalFees += competition.getTotalFees();
         }
 
         return totalFees;

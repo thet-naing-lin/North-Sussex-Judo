@@ -89,6 +89,7 @@ public class TrainingPlan {
         return calculateFees(selectedTrainingPlan);
     }
 
+    // For showing output at the end of registration
     public String trainingPlanName(int trainingPlan) {
         switch (trainingPlan) {
             case 1:
@@ -102,6 +103,7 @@ public class TrainingPlan {
         }
     }
 
+    // calculate the weekly training plan fees multiply with 4
     private double calculateFees(int trainingPlan) {
         switch (trainingPlan) {
             case 1:

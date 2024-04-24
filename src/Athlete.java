@@ -41,6 +41,7 @@ public class Athlete {
             } while (!isValidName(athleteName));
         }
 
+        // save the athleteName into name
         setName(athleteName);
     }
 
@@ -52,7 +53,7 @@ public class Athlete {
                 double athleteWeight = scanner.nextDouble();
                 System.out.println();
 
-                if (athleteWeight < 0) {
+                if (athleteWeight <= 0) {
                     System.out.println(Color.ANSI_RED + "Invalid Input. Please enter a non-negative number." + Color.ANSI_RESET);
                     System.out.println();
                     continue; // Restart the loop to prompt the user again
@@ -64,12 +65,15 @@ public class Athlete {
                 System.out.println(Color.ANSI_RED + "Invalid Input. Please enter number only." + Color.ANSI_RESET);
                 System.out.println();
                 scanner.next();
-                continue;
+                continue; // Skip the rest of the loop and start again.
             }
-            break;
+
+            break; // Exit the loop if input valid.
+            
         } while (true);
     }
 
+    // check validation of the input name
     private boolean isValidName(String name) {
 
         String check = "([a-zA-Z]+)(\\s[a-zA-Z]+)*";

@@ -31,9 +31,8 @@ public class Test {
         System.out.println("Your training fees for one month : " + formatTrainingFees);
         System.out.println();
 
-        // Consume the newline character left in the input buffer
+        // click enter to next step
         scanner.nextLine();
-
 
         // Weight Category
         WeightCategory weightCategory = new WeightCategory(athlete);
@@ -41,6 +40,7 @@ public class Test {
         System.out.println();
         weightCategory.showCompetitionWeight();
 
+        // Show the competition of weight category that user can enter
         System.out.println(Color.ANSI_YELLOW + weightCategory.compareToCompetitionWeight() + Color.ANSI_RESET);
 
 
@@ -50,7 +50,7 @@ public class Test {
         
         String competitionChoice;
 
-        Competition competition = new Competition();
+        Competition competition = new Competition(22);
 
         String formatCompetitionFees = null;
 
@@ -58,28 +58,33 @@ public class Test {
             competitionChoice = scanner.nextLine().trim().toLowerCase();
             
             if ((competitionChoice.equals("yes") || competitionChoice.equals("y"))) {
-                
+               
+                // Restriction for beginner plan athlete
                 if (trainingPlan.getSelectedPlan() == 1) {
                     System.out.println();
                     System.out.println(Color.ANSI_YELLOW + "Beginner Athlete can't enter the competition." + Color.ANSI_RESET);
                     break;
                 }
 
-                competition = new Competition(22);
-
                 competition.showCompetitionInfo();
 
                 double competitionFees = competition.selectedCompetitionFees();
 
-                competition.setFees(competitionFees);
+                competition.setTotalFees(competitionFees);
 
                 formatCompetitionFees = currencyFormat.format(competitionFees) + " $";
 
                 System.out.printf("%nYour Competition Fees : %s%n", formatCompetitionFees);
+                
                 break;
+
             } else if ((competitionChoice.equals("no") || competitionChoice.equals("n"))) {
+                
+                System.out.println();
                 System.out.println(Color.ANSI_YELLOW + "Athlete didn't want to participate competition." + Color.ANSI_RESET);
+                
                 break;
+
             } else {
                 System.out.println();
                 System.out.println(Color.ANSI_RED + "Invalid input. Please enter 'yes' or 'no'." + Color.ANSI_RESET);
@@ -109,7 +114,7 @@ public class Test {
     
                 double privateFees = privateCoaching.selectedPrivateCoaching();
     
-                privateCoaching.setFees(privateFees);
+                privateCoaching.setTotalFees(privateFees);
     
                 formatePrivateFees = currencyFormat.format(privateFees) + " $";
     
@@ -118,7 +123,8 @@ public class Test {
                 break;
 
             } else if(privateCoachingChoice.equals("no") || privateCoachingChoice.equals("n")) {
-    
+                
+                System.out.println();
                 System.out.println(Color.ANSI_YELLOW + "Athlete didn't want the private coaching." + Color.ANSI_RESET);
                 
                 break;
@@ -139,12 +145,13 @@ public class Test {
         boolean hasPrivateCoaching = privateCoachingChoice.equals("yes") || privateCoachingChoice.equals("y");
         boolean hasCompetition = competitionChoice.equals("yes") || competitionChoice.equals("y");
 
-        // To avoid null output by using ternary operator
+        double feesAmount = totalFees.calculateTotalFees(selectedTrainingPlan, hasPrivateCoaching, hasCompetition);
+
+        String formatTotalFees = currencyFormat.format(feesAmount) + " $";
+
+        // To avoid showing null output in the result by using ternary operator
         String privateFees = formatePrivateFees == null ? "0" : formatePrivateFees;
         String competitionFees = formatCompetitionFees == null ? "0" : formatCompetitionFees;
-
-        String formatTotalFees = currencyFormat
-                .format(totalFees.calculateTotalFees(selectedTrainingPlan, hasPrivateCoaching, hasCompetition)) + " $";
 
         System.out.println();
         System.out.println();
@@ -170,11 +177,15 @@ public class Test {
                     Private Coaching Cost for one month :   %s
 
                     Total Fees of one month             :   %s
-                """.formatted(athlete.getName(), athlete.getCurrentWeight(),
+                """.formatted(athlete.getName(),
+                athlete.getCurrentWeight(),
                 weightCategory.compareToCompetitionWeight(),
-                trainingPlan.trainingPlanName(selectedTrainingPlan), privateCoaching.getHours(),
+                trainingPlan.trainingPlanName(selectedTrainingPlan),
+                privateCoaching.getHours(),
                 competition.getCompetitionCount(),
-                formatTrainingFees, competitionFees, privateFees,
+                formatTrainingFees, 
+                competitionFees,
+                privateFees,
                 formatTotalFees) + Color.ANSI_RESET);
 
         scanner.close();
