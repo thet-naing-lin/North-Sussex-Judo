@@ -10,6 +10,15 @@ public class TotalFees {
         this.competition = competition;
     }
 
+    /**
+     * This method calculate the total fees for one month including training plan fees, private coach fees and
+     * competition fees.
+     * 
+     * @param selectedTrainingPlan (user selected training plan fees)
+     * @param hasPrivateCoaching (want private coaching or not for user)
+     * @param hasCompetition (participate competition or not for the user)
+     * @return double data type, by adding of all fees
+     */
     public double calculateTotalFees(int selectedTrainingPlan, boolean hasPrivateCoaching, boolean hasCompetition) {
 
         double totalFees = 0;

@@ -42,6 +42,9 @@ public class PrivateCoaching {
         this.weekPerMonth = weekPerMonth;
     }
 
+    /**
+     * This method show the information about private coaching.
+     */
     public void showPrivateFees() {
         System.out.println("""
                             ~~ Private Coaching Information ~~
@@ -51,6 +54,12 @@ public class PrivateCoaching {
                 """);
     }
 
+    /**
+     * This method request the number of hours of private coach for one week.
+     * Involved checking the input validation.
+     * 
+     * @return the another method that calculate the private fees method
+     */
     public double selectedPrivateCoaching() {
 
         int selectedHours = 0;
@@ -73,6 +82,14 @@ public class PrivateCoaching {
         return calculatePrivateFees(selectedHours);
     }
 
+    /**
+     * This method calculate the private fees based on the hours for one month.
+     * Checking the hour must be between 1 and 5.
+     * Also include validation of the input
+     * 
+     * @param selectedHours (number of hours for private coach)
+     * @return double type by multiplying private fees, user selected hour and weekly per month (for one month fees)
+     */
     private double calculatePrivateFees(int selectedHours) {
 
         while (selectedHours > 5 || selectedHours < 0) {

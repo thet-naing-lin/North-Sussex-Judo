@@ -54,6 +54,9 @@ public class TrainingPlan {
         return selectedPlan;
     }
 
+    /**
+     * This method showing the training plan info.
+     */
     public void showTrainingPlan() {
         System.out.println("""
                                     ~~ Training Plan ~~
@@ -64,6 +67,13 @@ public class TrainingPlan {
                 """);
     }
 
+    /**
+     * This method request training plan in a form of number from user.
+     * Also involved checking the validation input.
+     * the selectedTrainingPlan will be stored in the selectedPlan, private attribute of this class.
+     * 
+     * @return the method that will calculate the training plan fees for one month.
+     */
     public double selectedTrainingPlan() {
 
         int selectedTrainingPlan = 0;
@@ -89,6 +99,12 @@ public class TrainingPlan {
         return calculateFees(selectedTrainingPlan);
     }
 
+    /**
+     * This method is for showing output in the athlete information
+     * 
+     * @param trainingPlan (output will vary depending on selected training plan)
+     * @return String showing what training plan that user choose
+     */
     // For showing output at the end of registration
     public String trainingPlanName(int trainingPlan) {
         switch (trainingPlan) {
@@ -103,6 +119,12 @@ public class TrainingPlan {
         }
     }
 
+    /**
+     * This method is changing the number form of training plan into string form.
+     * 
+     * @param trainingPlan
+     * @return String
+     */
     public String trainingPlanNameOnly(int trainingPlan) {
         switch (trainingPlan) {
             case 1:
@@ -116,6 +138,13 @@ public class TrainingPlan {
         }
     }
 
+    /**
+     * This method calculate the training plan fees that user choose for one month
+     * by multiplying with weekly per month.
+     * 
+     * @param trainingPlan (that value will get from the selectedTrainingPlan() method)
+     * @return double data type, multiply with training plan fees and weekly per month
+     */
     // calculate the weekly training plan fees multiply with 4
     private double calculateFees(int trainingPlan) {
         switch (trainingPlan) {

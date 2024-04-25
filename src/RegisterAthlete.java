@@ -65,6 +65,11 @@ public class RegisterAthlete {
         this.trainingPlan = trainingPlan;
     }
 
+    /**
+     * Override the toString method to show output of the register athlete list at the end of program.
+     * 
+     * @return String formatted with text block
+     */
     @Override
     public String toString() {
 

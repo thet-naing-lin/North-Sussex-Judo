@@ -17,6 +17,11 @@ public class AthleteList {
         this.athletes = athletes;
     }
 
+    /**
+     * This method add the register athlete into the athlete list.
+     * 
+     * @param athlete (register athlete)
+     */
     public void add(RegisterAthlete athlete) {
         athletes.add(athlete);
     }

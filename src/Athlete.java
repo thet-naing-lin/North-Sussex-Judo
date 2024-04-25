@@ -24,6 +24,12 @@ public class Athlete {
         this.currentWeight = currentWeight;
     }
 
+    /**
+     * This method request the user name.
+     * Within this method, the user name input will get validation from another method.
+     * 
+     * @return void method
+     */
     public void requestAthleteName() {
 
         System.out.println("What is you name?");
@@ -45,6 +51,12 @@ public class Athlete {
         setName(athleteName);
     }
 
+    /**
+     * This method request the user weight.
+     * The input validation is handle by catching InputMismatchException.(using try-catch)
+     * 
+     * @return void method
+     */
     public void requestCurrentWeight() {
 
         do {
@@ -73,6 +85,13 @@ public class Athlete {
         } while (true);
     }
 
+    /**
+     * This method is checking name input.
+     * Doesn't want any number in the input.
+     * 
+     * @param name check the input name
+     * @return true if the name is valid
+     */
     // check validation of the input name
     private boolean isValidName(String name) {
 

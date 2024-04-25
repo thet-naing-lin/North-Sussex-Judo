@@ -6,6 +6,9 @@ public class WeightCategory {
         this.athlete = athlete;
     }
 
+    /**
+     * This method is showing category of competition weight info.
+     */
     public void showCompetitionWeight() {
         System.out.println("""
                             ~~ Competition Weight Category ~~
@@ -19,6 +22,11 @@ public class WeightCategory {
                 """);
     }
 
+    /**
+     * This method return the competition category statement based on user weight
+     * 
+     * @return String, statement
+     */
     // according to input weight, decide which category of competition that can enter
     public String compareToCompetitionWeight() {
 
@@ -51,6 +59,12 @@ public class WeightCategory {
         return "Athlete didn't input current weight.";
     }
 
+    /**
+     * This method return just the name of competition category
+     * based on user current weight.
+     * 
+     * @return String
+     */
     public String weightCategoryName() {
         
         double athleteWeight = athlete.getCurrentWeight();

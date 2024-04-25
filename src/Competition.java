@@ -33,6 +33,9 @@ public class Competition {
         this.competitionCount = competitionCount;
     }
 
+    /**
+     * This method just showing the information about competition
+     */
     public void showCompetitionInfo() {
         System.out.println();
         System.out.println("""
@@ -44,6 +47,13 @@ public class Competition {
                 """);
     }
 
+    /**
+     * This method request the number of competition for one month.
+     * Also contain checking the input validation.
+     * (only number allowed. Restricted negative number and alphabet)
+     * 
+     * @return another method that calculate the competition fees
+     */
     public double selectedCompetitionFees() {
 
         int numberOfCompetition = 0;
@@ -77,6 +87,13 @@ public class Competition {
         return calculateCompetitionFees(numberOfCompetition);
     }
 
+    /**
+     * This method  calculate the competition fees
+     * by multiplying competition by fees and competition count.
+     * 
+     * @param selectedCompetitionNumber (number of competition is needed)
+     * @return double data type
+     */
     private double calculateCompetitionFees(int selectedCompetitionNumber) {
 
         return selectedCompetitionNumber * competitionPerFee;
