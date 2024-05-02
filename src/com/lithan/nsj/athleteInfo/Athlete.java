@@ -1,5 +1,9 @@
+package com.lithan.nsj.athleteInfo;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.lithan.nsj.Color;
 
 public class Athlete {
 

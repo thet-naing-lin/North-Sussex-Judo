@@ -1,8 +1,20 @@
+
+
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
 
-public class Test {
+import com.lithan.nsj.Color;
+import com.lithan.nsj.athleteInfo.Athlete;
+import com.lithan.nsj.athleteInfo.AthleteList;
+import com.lithan.nsj.athleteInfo.RegisterAthlete;
+import com.lithan.nsj.calcuation.TotalFees;
+import com.lithan.nsj.sectionInfo.Competition;
+import com.lithan.nsj.sectionInfo.PrivateCoaching;
+import com.lithan.nsj.sectionInfo.TrainingPlan;
+import com.lithan.nsj.sectionInfo.WeightCategory;
+
+public class nsjDemo {
 
     public static void main(String[] args) {
 
@@ -13,12 +25,17 @@ public class Test {
 
         List<RegisterAthlete> allAthletes;
 
+        // Already register athletes
+        athleteList.add(new RegisterAthlete("Alex", 66.00, "Flyweight", "Beginner Plan", 0, 5));
+        athleteList.add(new RegisterAthlete("Bob", 77.00, "Light-Middleweight", "Intermediate Plan", 1, 3));
+        athleteList.add(new RegisterAthlete("Tom", 88.00, "Middleweight", "Elite Plan", 3, 5));
+        athleteList.add(new RegisterAthlete("Jimmy", 99.00, "Light-Heavyweight", "Intermediate Plan", 2, 2));
+        athleteList.add(new RegisterAthlete("Rio", 70.00, "Lightweight", "Elite Plan", 4, 3));
+        athleteList.add(new RegisterAthlete("Joe", 105.00, "Heavyweight", "Beginner Plan", 0, 1));
 
         do {
 
-            System.out.println();
-            System.out.println("\t\t~~ Welcome to North-Sussex-Judo ~~");
-            System.out.println();
+            displayMessage("~~ Welcome to North-Sussex-Judo ~~");
 
             // Athlete
             Athlete athlete = new Athlete();
@@ -133,6 +150,7 @@ public class Test {
                     System.out.println(
                             Color.ANSI_YELLOW + "Athlete didn't want the private coaching." + Color.ANSI_RESET);
 
+                            
                     break;
 
                 } else {
@@ -227,6 +245,14 @@ public class Test {
             System.out.println(rAthlete);
         }
 
+        displayMessage("GoodBye! Thanks for your registration");
+
         scanner.close();
+    }
+
+    public static void displayMessage(String sms) {
+        System.out.println("=======================================");
+        System.out.println(sms);
+        System.out.println("=======================================");
     }
 }

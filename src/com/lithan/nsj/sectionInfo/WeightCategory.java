@@ -1,3 +1,7 @@
+package com.lithan.nsj.sectionInfo;
+
+import com.lithan.nsj.athleteInfo.Athlete;
+
 public class WeightCategory {
 
     private Athlete athlete;

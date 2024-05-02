@@ -1,5 +1,9 @@
+package com.lithan.nsj.sectionInfo;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.lithan.nsj.Color;
 
 public class Competition {
 

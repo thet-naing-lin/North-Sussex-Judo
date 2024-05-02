@@ -1,3 +1,5 @@
+package com.lithan.nsj.athleteInfo;
+
 public class RegisterAthlete {
 
     String athleteName;

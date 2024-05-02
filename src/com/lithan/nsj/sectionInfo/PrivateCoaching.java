@@ -1,5 +1,9 @@
+package com.lithan.nsj.sectionInfo;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.lithan.nsj.Color;
 
 public class PrivateCoaching {
 
@@ -56,6 +60,7 @@ public class PrivateCoaching {
 
     /**
      * This method request the number of hours of private coach for one week.
+     * Checking the hour must be between 1 and 5.
      * Involved checking the input validation.
      * 
      * @return the another method that calculate the private fees method
@@ -68,6 +73,15 @@ public class PrivateCoaching {
             try {
                 System.out.print("How much hours do you want for private coaching in a week : ");
                 selectedHours = scanner.nextInt();
+
+                if (selectedHours > 5 || selectedHours < 0) {
+                    System.out.println();
+                    System.out.println(Color.ANSI_RED + "Private Coaching hours can't be more than 5 hours or negative number."
+                            + Color.ANSI_RESET);
+                    System.out.println();
+                    continue;   
+                }
+
                 setHours(selectedHours);
             } catch (InputMismatchException e) {
                 System.out.println();
@@ -84,36 +98,12 @@ public class PrivateCoaching {
 
     /**
      * This method calculate the private fees based on the hours for one month.
-     * Checking the hour must be between 1 and 5.
      * Also include validation of the input
      * 
      * @param selectedHours (number of hours for private coach)
      * @return double type by multiplying private fees, user selected hour and weekly per month (for one month fees)
      */
     private double calculatePrivateFees(int selectedHours) {
-
-        while (selectedHours > 5 || selectedHours < 0) {
-            System.out.println();
-            System.out.println(Color.ANSI_RED + "Private Coaching hours can't be more than 5 hours or negative number."
-                    + Color.ANSI_RESET);
-            System.out.println();
-            // For Invalid Input
-            do {
-                try {
-                    System.out.print("Enter the hours that you want in a week (maximum 5 hours/week) : ");
-                    selectedHours = scanner.nextInt();
-                    setHours(selectedHours);
-                } catch (InputMismatchException e) {
-                    System.out.println();
-                    System.out
-                            .println(Color.ANSI_RED + "Invalid input. Please enter a valid number." + Color.ANSI_RESET);
-                    System.out.println();
-                    scanner.next();
-                    continue; // Skip the rest of the loop and start again.
-                }
-                break; // Exit the loop if input valid.
-            } while (true);
-        }
 
         return hourlyFees * selectedHours * getWeekPerMonth();
     }

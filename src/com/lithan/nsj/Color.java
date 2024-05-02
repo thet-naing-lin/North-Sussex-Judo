@@ -1,3 +1,5 @@
+package com.lithan.nsj;
+
 public interface Color {
 
     public static final String ANSI_RESET = "\u001B[0m";

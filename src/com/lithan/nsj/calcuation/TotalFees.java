@@ -1,3 +1,9 @@
+package com.lithan.nsj.calcuation;
+
+import com.lithan.nsj.sectionInfo.Competition;
+import com.lithan.nsj.sectionInfo.PrivateCoaching;
+import com.lithan.nsj.sectionInfo.TrainingPlan;
+
 public class TotalFees {
 
     private TrainingPlan trainingPlan;

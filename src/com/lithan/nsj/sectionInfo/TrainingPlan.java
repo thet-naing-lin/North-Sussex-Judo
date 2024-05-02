@@ -1,5 +1,9 @@
+package com.lithan.nsj.sectionInfo;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.lithan.nsj.Color;
 
 public class TrainingPlan {
 
@@ -107,16 +111,13 @@ public class TrainingPlan {
      */
     // For showing output at the end of registration
     public String trainingPlanName(int trainingPlan) {
-        switch (trainingPlan) {
-            case 1:
-                return "Athlete choose the beginner plan. (2 sessions per week)";
-            case 2:
-                return "Athlete choose the intermediate plan. (3 sessions per week)";
-            case 3:
-                return "Athlete choose the elite plan. (5 sessions per week)";
-            default:
-                return "Athlete didn't choose any plan";
-        }
+        
+        return switch (trainingPlan) {
+            case 1 ->  "Athlete choose the beginner plan. (2 sessions per week)";
+            case 2 ->  "Athlete choose the intermediate plan. (3 sessions per week)";
+            case 3 ->  "Athlete choose the elite plan. (5 sessions per week)";
+            default -> "Athlete didn't choose any plan";
+        };
     }
 
     /**
@@ -126,16 +127,13 @@ public class TrainingPlan {
      * @return String
      */
     public String trainingPlanNameOnly(int trainingPlan) {
-        switch (trainingPlan) {
-            case 1:
-                return "Beginner Plan";
-            case 2:
-                return "Intermediate Plan";
-            case 3:
-                return "Elite Plan";
-            default:
-                return "Athlete didn't choose any plan";
-        }
+
+        return switch (trainingPlan) {
+            case 1 ->  "Beginner Plan";
+            case 2 ->  "Intermediate Plan";
+            case 3 ->  "Elite Plan";
+            default -> "Athlete didn't choose any plan";
+        };
     }
 
     /**
